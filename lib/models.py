@@ -1,13 +1,11 @@
-#!/usr/bin/env python3
+from sqlalchemy.orm import registry
+from sqlalchemy import Column, Integer, String
 
-from sqlalchemy import (Column, String, Integer)
-from sqlalchemy.ext.declarative import declarative_base
-
-Base = declarative_base()
+mapper_registry = registry()
+Base = mapper_registry.generate_base()
 
 class Dog(Base):
-    __tablename__ = 'dogs'
-
-    id = Column(Integer(), primary_key=True)
-    name = Column(String())
-    breed = Column(String())
+    __tablename__ = 'dogs'  # Define the table name
+    id = Column(Integer, primary_key=True)  # Primary key
+    name = Column(String)  # Name column
+    breed = Column(String)  # Breed column

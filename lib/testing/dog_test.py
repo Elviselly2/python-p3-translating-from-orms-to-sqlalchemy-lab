@@ -2,16 +2,8 @@ import os
 
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
+from dog import create_table, save, get_all, find_by_name, find_by_id, find_by_name_and_breed, update_breed
 
-from dog import (
-    create_table,
-    find_by_id,
-    find_by_name,
-    find_by_name_and_breed,
-    save,
-    get_all,
-    update_breed
-)
 from models import Base, Dog
 from testing.conftest import db_dir, SQLITE_URL
 
